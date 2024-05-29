@@ -8,7 +8,6 @@ import { useExpenses } from "../utils/ExpensesContext";
 import FormContainer from "../styledcomponents/FormContainer";
 import Row from "../styledcomponents/Row";
 import SaveBtn from "../styledcomponents/SaveBtn";
-import FormStyle from "../styledcomponents/StyledForm";
 
 const NewItemForm = () => {
   const [date, setDate] = useState("");
@@ -35,7 +34,7 @@ const NewItemForm = () => {
         <Row>
           <div>
             <label>날짜:</label>
-            <FormStyle
+            <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
@@ -43,7 +42,7 @@ const NewItemForm = () => {
           </div>
           <div>
             <label>지출 항목:</label>
-            <FormStyle
+            <input
               type="text"
               value={item}
               onChange={(e) => setItem(e.target.value)}
@@ -51,7 +50,7 @@ const NewItemForm = () => {
           </div>
           <div>
             <label>금액:</label>
-            <FormStyle
+            <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
@@ -59,13 +58,15 @@ const NewItemForm = () => {
           </div>
           <div>
             <label>내용:</label>
-            <FormStyle
+            <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
         </Row>
-        <SaveBtn type="submit">저장</SaveBtn>
+        <SaveBtn>
+          <button type="submit">저장</button>
+        </SaveBtn>
       </form>
     </FormContainer>
   );
